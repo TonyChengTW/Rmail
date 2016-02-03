@@ -1,0 +1,15 @@
+# Do not edit -- this file documents how Postfix was built for your machine.
+SYSTYPE	= FREEBSD5
+AR	= ar
+ARFL	= rv
+RANLIB	= ranlib
+SYSLIBS	= -L/usr/local/lib/mysql -lmysqlclient -lz -lm -L/usr/local/lib -lpcre -lcrypt -L/usr/local/lib -lpcre 
+CC	= gcc $(WARN) -DHAS_MYSQL -I/usr/local/include/mysql -DHAS_PCRE -I/usr/local/include
+OPT	= -O
+DEBUG	= -g
+AWK	= awk
+STRCASE = 
+EXPORT	= AUXLIBS='-L/usr/local/lib/mysql -lmysqlclient -lz -lm -L/usr/local/lib -lpcre -lcrypt -L/usr/local/lib -lpcre' CCARGS='-DHAS_MYSQL -I/usr/local/include/mysql -DHAS_PCRE -I/usr/local/include' OPT='-O' DEBUG='-g'
+WARN	= -W -Wformat -Wimplicit -Wmissing-prototypes \
+	-Wparentheses -Wstrict-prototypes -Wswitch -Wuninitialized \
+	-Wunused
